@@ -9,7 +9,7 @@ filetype plugin indent on
 
 " Some basic options
 set completeopt=noinsert,menuone,noselect
-set history=500
+set history=10000
 set showcmd
 set smartcase
 set ignorecase
@@ -30,6 +30,13 @@ set splitbelow
 set path+=**
 set fillchars+=vert:\│
 set synmaxcol=5000
+set laststatus=2
+set gdefault
+set gcr=a:blinkon0
+set visualbell
+set autoread
+set shortmess-=S
+
 
 " set exrc
 " set secure
@@ -49,12 +56,22 @@ set undofile
 " colorscheme seoul
 " colorscheme abstract
 " colorscheme afterglow
+set termguicolors
 set background=dark
-colorscheme scheakur
-ifont iosevka-fixed-ss04-extended 18
+colorscheme nord
+let g:nord_italic
+let g:nord_italic_comments=1	
+let g:nord_underline=1
+" ifont iosevka-fixed-ss04-extended 18
+ifont set "JetBrains Mono" -s 16
 
 let mapleader=","
 let maplocalleader=","
+
+" netrw ------------------
+let g:netrw_silent=1
+let g:netrw_preview=1
+let g:netrw_alto=0
 
 " Vimtex ------------------------------
 let g:vimtex_compiler_enabled=0
@@ -157,5 +174,7 @@ nnoremap <c-1> :call SynGroup()<cr>
 " I'm so used to doing this...
 nmap <c-s> :w<cr>
 
+" add italics for comments
+highlight Comment cterm=italic gui=italic
 
 " vim: fdm=marker
